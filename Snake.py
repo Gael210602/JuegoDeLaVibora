@@ -1,11 +1,9 @@
-"""Snake, classic arcade game.
+"""
+SNAKE GAME
 
-Exercises
-
-1. How do you make the snake faster or slower?
-2. How can you make the snake go around the edges?
-3. How would you move the food?
-4. Change the snake to respond to mouse clicks.
+- La comida se mueve al azar un paso a la vez y no  se sale de la ventana
+- Cada vez que se corre el juego, la víbora y la comida tienen colores 
+diferentes entre sí, pero al azar, de una serie de 5 diferentes colores, excepto el rojo.
 
 """
 import random
