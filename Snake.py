@@ -18,8 +18,36 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+food_count = 0
 
 colors = ["blue", "orange", "yellow", "green", "black"]
+
+
+def move_food():
+    global food_count
+    if food_count == 25:
+        if random.choice([True, False]):
+            if food.x == 150:
+                food.x = food.x - 10
+            elif food.x == -150:
+                food.x = food.x + 10
+            else:
+                if random.choice([True, False]):
+                    food.x = food.x - 10
+                else:
+                    food.x = food.x + 10
+            food_count = 0
+        else:
+            if food.y == 150:
+                food.y = food.y - 10
+            elif food.y == -150:
+                food.y = food.y + 10
+            else:
+                if random.choice([True, False]):
+                    food.y = food.y - 10
+                else:
+                    food.y = food.y + 10
+            food_count = 0
 
 
 def selectRandom(colors):
@@ -41,6 +69,9 @@ def inside(head):
 
 def move():
     "Move snake forward one segment."
+    global food_count
+    food_count += 1
+    print(food_count)
     head = snake[-1].copy()
     head.move(aim)
 
@@ -62,7 +93,7 @@ def move():
 
     for body in snake:
         square(body.x, body.y, 9, snake_col)
-
+    move_food()
     square(food.x, food.y, 9, food_col)
     update()
     ontimer(move, 100)
