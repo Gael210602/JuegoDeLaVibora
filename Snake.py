@@ -71,7 +71,6 @@ def move():
     "Move snake forward one segment."
     global food_count
     food_count += 1
-    print(food_count)
     head = snake[-1].copy()
     head.move(aim)
 
